@@ -1,0 +1,28 @@
+﻿@model List<MVCRoute.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>CategoryName</th>
+            <th>CategoryId</th>
+            <th>ProductName</th>
+            <th>ProductId</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.CategoryID</td>
+                <td>@item.ProductName</td>
+                <td>@item.ProductID</td>
+                <td>@Html.ActionLink("Detay", "Details", new { CategoryName = item.Category, CategoryID = item.CategoryID, ProductName = item.ProductName, ProductID = item.ProductID })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
